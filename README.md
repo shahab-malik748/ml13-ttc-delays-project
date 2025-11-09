@@ -172,7 +172,7 @@ Final insights, feature importance results, and model performance metrics will b
 To explore this project locally:  
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/your-repo-name/TTC-Delay-Prediction.git
+   git clone https://github.com/shahab-malik748/ml13-ttc-delays-project
 
 
 # Visuals & Credits  
