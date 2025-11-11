@@ -1,4 +1,4 @@
-/*
+
 DROP TABLE IF EXISTS ttc_delays_final_df;
 
 create table ttc_delays_final_df as
@@ -7,8 +7,6 @@ a.Date as date
 ,cast(strftime('%Y', a.Date) as integer) as year
 ,cast(strftime('%m', a.Date) as integer) as month
 ,cast(strftime('%d', a.Date) as integer) as day_of_month
-,cast(strftime('%H', a.Time) as integer) as hour
-,cast(strftime('%M', a.Time) as integer) as minute
 ,cast(strftime('%w', a.Date) as integer) as weekday_num
 ,a.Time as time
 ,cast(strftime('%H', a.Time) as integer) as hour
@@ -74,6 +72,15 @@ select count (*) from ttc_delays_final_df where major_delay_flag = 1
 
 select count (*) from ttc_delays_final_df where rush_hour_flag = 1 and major_delay_flag = 1
 -- 2,472 major delays during rush hour
+
+
+select * from ttc_delays_final_df where year = 2025;
+
+SELECT Date, Time
+FROM allyears_ttc_delays
+WHERE strftime('%Y', Date) = '2019' AND strftime('%m', Date) = '01'
+  AND (Time IS NULL OR TRIM(Time) = '');
+
 
 
 */

@@ -58,6 +58,8 @@ CREATE TABLE allyears_ttc_delays AS
 ;
 */
 
+
+
 --Some checks
 
 select count (*) from allyears_ttc_delays;
