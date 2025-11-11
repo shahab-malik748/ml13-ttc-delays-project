@@ -77,6 +77,17 @@ This methodology integrates both **data engineering** and **machine learning** w
 ### Goals & Objectives  
 The primary goal of this project is to analyze the **Toronto Transit Commission (TTC)** open data on subway delays and develop a **machine learning classification model** to predict the likelihood of a **high-delay incident** (defined as a delay greater than 5 minutes).  
 
+Furthermore, in the attempt to further classify the delay codes, we have created the Controllable/Non-Controllable flag. I have defined what this flag represents below:
+Controllable (1) : All delay codes which refer to a situation which can be addressed/resolved by TTC unilaterally. Examples of this include technical issues relating to the rail cars and unavailability of staff.
+Non-Controllable (0): All delay codes which refer to a situation where TTC is unable to unilaterally resolve. An example would be the  suspicious package delay code on the train where TTC will have to rely on law enforcement
+
+For the above flag, we're making the following assumptions
+- For technical issues flagged as 'Controllable', we're assuming TTC has internal capability and capacity to address and resolve them
+- For staff related issues flagged as 'Controllable', we're assuming TTC has internal capability and capacity to address and resolve them
+
+In the dataset that we’re using, we have a total of 129 delay codes. Using the rationale mentioned above, we have classified 72 out of the 129 delay codes to be controllable.
+
+
 Specifically, the project aims to:  
 - **Identify the most predictive factors** influencing subway delays, including day of the week, time of day, and subway line.  
 - **Aggregate and simplify delay codes** into 5–6 broader categories for clearer interpretability and improved model performance.  
