@@ -21,7 +21,7 @@ a.Date as date
 ,a.Bound as location_bound
 ,case
     when a.Line in ('YUS', 'YU/BD', 'YU') then 'YU'
-    when a.Line in ('BD', 'BD Line 2') then 'BD'
+    when a.Line in ('BD', 'BD LINE 2') then 'BD'
     else a.Line
   end as line
 ,case
@@ -76,6 +76,6 @@ select count (*) from ttc_delays_final_df where rush_hour_flag = 1 and major_del
 
 select * from ttc_delays_final_df where hour is null;
 
-
+select distinct line from ttc_delays_final_df
 
 */
