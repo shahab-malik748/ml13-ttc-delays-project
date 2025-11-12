@@ -56,8 +56,8 @@ CREATE TABLE allyears_ttc_delays AS
   UNION ALL SELECT * FROM ttc_subway_delay_data_2024
   UNION ALL SELECT * FROM TTC_Subway_Delay_Data_since_2025
 ;
-*/
 
+*/
 
 
 --Some checks
@@ -65,8 +65,8 @@ CREATE TABLE allyears_ttc_delays AS
 select count (*) from allyears_ttc_delays;
 -- 228,870
 select count (*) from allyears_ttc_delays where "Min Delay" = 0;
--- 149,074
-select count (*) from allyears_ttc_delays where "Min Delay" > 0 
+-- 149
+select count (*) from allyears_ttc_delays where "Min Delay" > 0
 -- 79,796
 
 

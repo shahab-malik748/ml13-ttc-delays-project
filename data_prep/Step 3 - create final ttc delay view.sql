@@ -61,25 +61,20 @@ SELECT name FROM sqlite_master WHERE type='table' AND name='ttc_delays_final_df'
 select count (*) from allyears_ttc_delays where "Min Delay" > 0;
 -- 79796
 select count (*) from ttc_delays_final_df where min_delay > 0;
--- 75596
+-- 75504
 
 
 select count (*) from ttc_delays_final_df where rush_hour_flag = 1 
--- 20,595 rush hour delays (6:30-9:30 and 16:00 to 19:00 on weekdays)
+-- 21,590 rush hour delays (6:30-9:30 and 16:00 to 19:00 on weekdays)
 
 select count (*) from ttc_delays_final_df where major_delay_flag = 1
--- 11,660 major delays (>=10 mins delay)
+-- 11,645 major delays (>=10 mins delay)
 
 select count (*) from ttc_delays_final_df where rush_hour_flag = 1 and major_delay_flag = 1
--- 2,472 major delays during rush hour
+-- 2,588 major delays during rush hour
 
 
-select * from ttc_delays_final_df where year = 2025;
-
-SELECT Date, Time
-FROM allyears_ttc_delays
-WHERE strftime('%Y', Date) = '2019' AND strftime('%m', Date) = '01'
-  AND (Time IS NULL OR TRIM(Time) = '');
+select * from ttc_delays_final_df where hour is null;
 
 
 
