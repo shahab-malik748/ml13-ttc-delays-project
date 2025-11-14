@@ -60,11 +60,12 @@ Despite these constraints, this project offers **data-driven insights** into how
 - **SQL**
 
 #### Tools & Frameworks  
-- **SQLite:** For structured data storage and SQL-based preprocessing  
+- **SQLite:** For structured data storage and SQL-based preprocessing
+- **Jupyter Notebook:** For reproducible workflow documentation and collaborative analysis 
 - **Pandas & NumPy:** For data manipulation and numerical analysis  
 - **Matplotlib:** For exploratory visualization and trend analysis  
 - **Scikit-learn:** For machine learning model development and evaluation  
-- **Jupyter Notebook:** For reproducible workflow documentation and collaborative analysis  
+ 
 
 ---
 
@@ -75,7 +76,7 @@ This methodology integrates both **data engineering** and **machine learning** w
 # Project Scope  
 
 ### Goals & Objectives  
-The primary goal of this project is to analyze the **Toronto Transit Commission (TTC)** open data on subway delays and develop a **machine learning classification model** to predict the likelihood of a **high-delay incident** (defined as a delay greater than 5 minutes).  
+The primary goal of this project is to analyze the **Toronto Transit Commission (TTC)** open data on subway delays and develop a **machine learning classification model** to predict the likelihood of a **high-delay incident** (defined as a delay of 10 minutes or more)  
 
 Specifically, the project aims to:  
 - **Identify the most predictive factors** influencing subway delays, including day of the week, time of day, and subway line.  
