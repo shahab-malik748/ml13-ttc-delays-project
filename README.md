@@ -157,20 +157,23 @@ In the SHAP analysis, *technical* and *staff* were the most impactful features i
 Technical delays had a mean abs SHAP of 0.28 whereas Staff delays had a mean abs SHAP of 0.18.
 Refer to : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/Regression/MLP%20-%20controllable%20delay.ipynb
 
-# Conclusion  
+# Conclusion and Next Steps
 - KNN Classification failed to predict **significant delays**, however was able to predict **controllabe delays** to a good extent.
 - Our MLP model was able to highlight the top features that impacted **controllable delays**
-   
-# Business Outcome
-Our recommendations to the TTC is to focus on technical and staff related delays in order to reduce the number of controllable delays.
+- Our recommendations to the TTC is to focus on technical and staff related delays in order to reduce the number of controllable delays.
 
-# Next Steps
+In order to improve our model preictions and provide more value to TTC, we would like to do the following:
 - Work with TTC to stress test our assumptions.
 - Improve pre-processing by making more features usable (like station). Also implement fixes to bring the major event flag.
 - Combine other TTC usage datasets to leveraging more features and try predicting tangible response variables.
 - Improve model accuracy using more feature engineering and model exploration.
 
-Further tuning and validation will refine model performance and ensure better prediction evaluation metrics.  
+# Links to individual video reflection
+
+Arman Kavalekar            
+Jamal Hassan Bagheri        
+Rohan Kulkarni              
+Shahab Malik                
  
 
 ### Reproduction Instructions  
