@@ -59,10 +59,13 @@ Despite these constraints, this project offers **data-driven insights** into whe
   - Loaded CSV files into **SQLite** to perform initial data transformations and filtering.  
   - Utilized **SQL queries** to clean and aggregate the data, then exported the transformed outputs back to CSV files for further analysis.  
   
-    **Zero-Delay Filtering:**  
+    **Data cleaning and filtering:**  
     - Analyzed the frequency of zero-delay values within each incident code to determine their impact on data integrity.  
     - Decided to **filter out rows where “Min Delay = 0”**, as these records typically represented incomplete or misclassified incidents.  
-    - Considered proxy methods for imputing or approximating zero-delay cases but determined that removal would yield a cleaner dataset for classification. 
+    - Considered proxy methods for imputing or approximating zero-delay cases but determined that removal would yield a cleaner dataset for classification.
+    - Removed records for bus lines and the discontinued subway line (Scarborough LRT).
+    - Normalised the date and time columns to be consistent across datasets.
+    - Made manual fixes to subway line codes
     **Variable Assessment:**  
     - Determined that most features were **categorical** ( Station, Time, Incident Type).  
     - Acknowledged that regression models would be limited due to minimal continuous data; hence, **classification models** were prioritized for predicting high-delay events.  
@@ -72,12 +75,22 @@ Despite these constraints, this project offers **data-driven insights** into whe
     - Loaded the transformed data into **Python** for exploratory analysis and modeling.
 
 - **Feature Engineering:** 
-  - Created new features such as *rush-hour flag*, *day-of-week*, *significant delay categories* and *controllable delay*.
+  We created new the following new features:
+  - *Rush hour flag* is "1" for 
+    • 	Weekday mornings from  6:30 AM to 9:30 AM
+    • 	Weekday evenings from 4:00 PM to 7:00 PM*
   - *Significant delay categories* were created by rolling up delay codes into technical, staff, cummuter, weather and miscellaneous
   - *Controllable delay flag* was defined as follows:
-    -  **Controllable** (1): All delay codes which refer to a situation which can be addressed/resolved by TTC unilaterally, like technical            issues relating to the track and cars and unavailability of staff.
+    - **Controllable** (1): All delay codes which refer to a situation which can be addressed/resolved by TTC unilaterally, like technical issues relating to the track and cars and staff unavailability.
     - **Non-Controllable** (0): All delay codes which refer to a situations outside of TTCs control, like suspicious package, elevators down, police investigation, weather, etc.
     - We have a total of 129 delay codes. Using the rationale mentioned above, we have classified 72 out of the 129 delay codes to be controllable.
+  - *Season* Definitions:
+    • 	Spring: March 20 to June 20
+    • 	Summer: June 21 to September 21
+    • 	Fall: September 22 to December 20
+    • 	Winter: December 21 to March 19
+  - *Major delay flag* was defined as "1" for a delay of 10 minutes or more.
+  - Created a "major events flag" for days where major events occur in Toronto in the years between 2014 and 2025. (Note: This feature was dropped in the cleaning process. We plan to incorporate it under            continuous improvement.
   - Dropped features like *year*, *station*, *direction* due to irrelevance or incomplete/junk data.
   - Standardized numerical features like *month*, *date* , *hour*.
   - One-hot-encoded categorical variables like *delay category* and *subway line*.
@@ -87,7 +100,12 @@ Despite these constraints, this project offers **data-driven insights** into whe
   - Built supervised learning models to predict a **significant delay occurance** and **controllable delay**  from features. (delay >= 10 minutes)
   - Used **train-test split** to separate data for training and evaluation.  
   - Applied **GridSearchCV** for hyperparameter tuning and model validation.  
-  - Fitted classification algorithms such as **K-Nearest Neighbors** and **Multi-layer Perceptron using Dense Layer** .
+  - Fitted classification algorithms such as **K-Nearest Neighbors** and **Random Forest**.
+  - Develop **Multi Layer Perception** model and conducted SHAP analysis to assess feature importance.
+     - In order to optimize the MLP accuracy, we tested the following model permutations:
+          - Regularization technique -  Model with or without a dropout layer after each dense layer.
+          - Hyperparameter options - Modes with 32,64, 128 filters.
+          - This gave us 16 model options to compare and choose as out final model to run a SHAP analysis with.
   - Assessed performance using metrics including **accuracy**, **precision**, **recall**, **F1-score** and **ROC-AUC**.  
   - **Visualization & Insight** Created clear graphical representations to interpret confusion matrix for KNN, and feature importance using SHAP analysis for MLP model.  
   - **Conclusion:** Summarized findings and identified the most predictive features contributing to controllable delays incidents.
@@ -137,7 +155,6 @@ Click to view : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/
 
 In the SHAP analysis, *technical* and *staff* were the most impactful features in predicting controllable delays.
 Technical delays had a mean abs SHAP of 0.28 whereas Staff delays had a mean abs SHAP of 0.18.
-
 Refer to : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/Regression/MLP%20-%20controllable%20delay.ipynb
 
 # Conclusion  
@@ -147,6 +164,11 @@ Refer to : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/
 # Business Outcome
 Our recommendations to the TTC is to focus on technical and staff related delays in order to reduce the number of controllable delays.
 
+# Next Steps
+- Work with TTC to stress test our assumptions.
+- Improve pre-processing by making more features usable (like station). Also implement fixes to bring the major event flag.
+- Combine other TTC usage datasets to leveraging more features and try predicting tangible response variables.
+- Improve model accuracy using more feature engineering and model exploration.
 
 Further tuning and validation will refine model performance and ensure better prediction evaluation metrics.  
  
