@@ -160,7 +160,7 @@ Refer to : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/
 # Conclusion  
 - KNN Classification failed to predict **significant delays**, however was able to predict **controllabe delays** to a good extent.
 - Our MLP model was able to highlight the top features that impacted **controllable delays**
-- 
+   
 # Business Outcome
 Our recommendations to the TTC is to focus on technical and staff related delays in order to reduce the number of controllable delays.
 
