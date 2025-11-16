@@ -109,11 +109,14 @@ Despite these constraints, this project offers **data-driven insights** into whe
 
 # Results
 
-Please refer to the Jupyter notebook files contained in the repo for complete modelling code & evaluation metrics
   ### KNN Classification to predict **significant delay**
-Refer to :
-  ### MLP with dense layer to predict **significant delay**
-Refer to : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/Regression/MLP%20-%20major%20delay.ipynb
+
+<img width="667" height="551" alt="image" src="https://github.com/user-attachments/assets/da1d6adf-1392-468d-91ca-f101e8e71c70" />
+
+
+  ### MLP with dense layer to predict **significant delay
+
+  
   ### KNN Classification to predict **controllable delay**
 Refer to : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/Classification/KNN_Classification_Controllable_Delay.ipynb
   ### MLP with dense layer to predict **controllable delay**
