@@ -113,19 +113,40 @@ Despite these constraints, this project offers **data-driven insights** into whe
 
 <img width="667" height="551" alt="image" src="https://github.com/user-attachments/assets/da1d6adf-1392-468d-91ca-f101e8e71c70" />
 
+As you can see from the above confusion matrix, our KNN classification model only predicted corrected an insignificant delay, but failed to predict significant delays using the features available.
+Hence we pivoted to using 'Controllable Dealy' as out output variable.
+Click on the link to view: https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/src_files/KNN_Classification_Significant_delay.ipynb
 
-  ### MLP with dense layer to predict **significant delay
-
+  ### MLP to highlight features impacting **significant delay**
+Since were not able to create an impactful KNN prediction model using "siginficant delays" as our output variable, we pivoted to "controllable delays" as our output variable.
+Significant delays MPL is available is available in the repository.
+However SHAP analysis was not done on this model.
+Click on the link to view: https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/Regression/MLP%20-%20major%20delay.ipynb
   
   ### KNN Classification to predict **controllable delay**
-Refer to : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/Classification/KNN_Classification_Controllable_Delay.ipynb
-  ### MLP with dense layer to predict **controllable delay**
+
+<img width="559" height="462" alt="image" src="https://github.com/user-attachments/assets/b0e61ba2-9f7f-43b5-b429-f3168280dfee" />
+
+We were able to predict "Controllable Delays" with a higher degree of precision. Out of 7009 observations where there was a controllable delay, the model was able to predict 6016.
+Out of our 18876 predictions,  15% were false positives. Thats creates room for us to continuously improve our model and explore other models. 
+Click to view : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/Classification/KNN_Classification_Controllable_Delay.ipynb
+ 
+  ### MLP to highlight features impacting **controllable delay**
+
+<img width="990" height="454" alt="image" src="https://github.com/user-attachments/assets/943c6465-d210-4667-8d09-f2b229c31574" />
+
+In the SHAP analysis, *technical* and *staff* were the most impactful features in predicting controllable delays.
+Technical delays had a mean abs SHAP of 0.28 whereas Staff delays had a mean abs SHAP of 0.18.
+
 Refer to : https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/Regression/MLP%20-%20controllable%20delay.ipynb
 
-# Conclusion & Key Findings  
+# Conclusion  
+- KNN Classification failed to predict **significant delays**, however was able to predict **controllabe delays** to a good extent.
+- Our MLP model was able to highlight the top features that impacted **controllable delays**
+- 
+# Business Outcome
+Our recommendations to the TTC is to focus on technical and staff related delays in order to reduce the number of controllable delays.
 
-- KNN Classification and MLP with dense layer were inadequate in predicting **significant delays**.
-- However the models were classify **controllabe delays** to a good extent. 
 
 Further tuning and validation will refine model performance and ensure better prediction evaluation metrics.  
  
