@@ -172,7 +172,7 @@ In order to improve our model preictions and provide more value to TTC, we would
 
 Arman Kavalekar - https://drive.google.com/file/d/1dRpoaliab28jhecXSZcJ4mIXTluJyJsk/view?usp=sharing          
 Jamal Hassan Bagheri        
-Rohan Kulkarni              
+Rohan Kulkarni - https://youtu.be/4aHrFijZdCw            
 Shahab Malik                
  
 
