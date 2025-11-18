@@ -132,7 +132,7 @@ Despite these constraints, this project offers **data-driven insights** into whe
 <img width="667" height="551" alt="image" src="https://github.com/user-attachments/assets/da1d6adf-1392-468d-91ca-f101e8e71c70" />
 
 As you can see from the above confusion matrix, our KNN classification model only predicted corrected an insignificant delay, but failed to predict significant delays using the features available.
-Hence we pivoted to using 'Controllable Dealy' as out output variable.
+Hence we pivoted to using 'Controllable Delay' as out output variable.
 Click on the link to view: https://github.com/shahab-malik748/ml13-ttc-delays-project/blob/main/src_files/KNN_Classification_Significant_delay.ipynb
 
   ### MLP to highlight features impacting **significant delay**
